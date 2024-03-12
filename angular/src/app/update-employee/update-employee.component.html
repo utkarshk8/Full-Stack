@@ -1,0 +1,43 @@
+<h2 class="col py-4 text-center">Update Employee</h2>
+<div class="col offset-2 py-4" >
+    <form (ngSubmit) = "onSubmit()">
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="form-outline">
+                <label class="form-label" for="form3Example1">First name</label>
+                <input type="text" name="firstName" id="form3Example1" class="form-control" [(ngModel)] = "employee.firstName" /> 
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-outline">
+                <label class="form-label" for="form3Example2">Last name</label> 
+                <input type="text" name="lastName" id="form3Example2" class="form-control" [(ngModel)] = "employee.lastName" />  
+            </div>
+          </div>
+        </div>
+      
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3">Designation</label>
+                    <input type="text" name="designation" id="form3Example3" class="form-control" [(ngModel)] = "employee.designation" />  
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3">Email Address</label>
+                    <input type="email" name="email" id="form3Example4" class="form-control" [(ngModel)] = "employee.emailId" />  
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <button type="submit" class="btn  btn-block mb-4 py-2" style=" background-color:#5bb73b; color: white;">Update Employee</button>
+            </div>
+        </div>
+      </form>
+
+</div>

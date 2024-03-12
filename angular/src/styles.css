@@ -1,0 +1,56 @@
+.navbar .navbar-nav .nav-link {
+    color: black;
+    font-size: 1.1em;
+}
+.navbar .navbar-nav .nav-link:hover {
+  background-color: #5bb73b;
+  color: rgb(255, 255, 255);
+}
+.navbar .navbar-nav .nav-link {
+    padding: 0.6em;
+  }
+  .navbar .navbar-brand {
+    padding: 0 0.6em;
+  }
+  @media only screen and (min-width: 992px) {
+    .navbar {
+      padding: 0;
+    }
+    .navbar .navbar-nav .nav-link {
+      padding: 1em 0.7em;
+    }
+    .navbar .navbar-brand {
+      padding: 0 0.8em;
+    }
+  }
+  .navbar .navbar-nav .nav-link {
+    padding: 1em 0.7em;
+    transition: all 0.5s;
+  }
+
+  .glasscard{
+    /* From https://css.glass */
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.3s;
+  }
+
+  .glasscard:hover{
+    transform: scale(1.1);
+  }
+
+.pageButton{
+  margin: 4px; height: 50px; width: 50px; font-size: x-large;
+  border: 2px solid #5bb73b;
+  color: #5bb73b;
+  transition: all 0.1s;
+}
+.pageButton:hover{
+
+   background-color: #5bb73b;
+   color: white;
+}

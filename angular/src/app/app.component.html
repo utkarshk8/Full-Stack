@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg px-4 shadow shadow-bottom" style="background-color: white;">
+  <img src="../assets/PTCLOGO.png" alt="PTC Logo" class="navbar-logo mr-4 py-2" height="60">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="employees" style="text-decoration: none;">Employee Directories</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="create-employee" style="text-decoration: none;">Add Employee</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="send-messages-to-queue" style="text-decoration: none;">Azure Queue</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" style="margin-left: auto;">
+      <li class="nav-item active">
+        <button class="dropdown-item" (click)="login()" *ngIf="!(user$ | async)">Login with Auth0</button>
+      </li>
+      <li class="dropdown" *ngIf="user$ | async as user"> 
+        <div class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+          <img src="{{ user?.picture }}" class="rounded-circle img-fluid" height="40" width="40">
+        </div>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <img src="{{ user?.picture }}" class="rounded-circle dropdown-item img-fluid" height="40" width="40">
+          <p class="dropdown-item"><span style="font-weight: bold;">Name:</span> {{ user?.nickname }}</p>
+          <p class="dropdown-item"><span style="font-weight: bold;">Email: </span>{{ user?.email }}</p>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" (click)="logout()">Logout</button>
+          <button class="dropdown-item" (click)="getAccessToken()">Get Access Token</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container my-4">
+  <router-outlet></router-outlet>
+</div>

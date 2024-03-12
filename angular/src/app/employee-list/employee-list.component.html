@@ -1,0 +1,46 @@
+<h2>Employee</h2>
+<input type="text" [(ngModel)]="searchText" placeholder="Search employees..." class="col-md-12 mr-2 my-2 py-2 rounded" (input) = "onSearchChange()">
+<div class="row  row-cols-md-6">
+  <ng-container *ngIf="filteredEmployees!.length > 0; else noEmployees">
+    <div class="card mx-3 my-2  glasscard" *ngFor="let employee of filteredEmployees" id=`${employee.empId}`>
+      <div class="card-body text-center">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+          class="rounded-circle img-fluid" style="width: 100px;">
+        <h5 class="mt-3">{{employee.firstName}} {{employee.lastName}}</h5>
+        <p class="text-muted mb-1">{{employee.designation}}</p>
+        <p class="mb-4" style="color:#5bb73b;">{{employee.emailId}}</p>
+        <div class="d-flex justify-content-center mb-2">
+          <button type="button" class="btn mr-2" style="background-color:#5bb73b; color: white;" (click)="updateEmployee(employee.empId)">Update</button>
+          <button type="button" class="btn ms-1"  style="background-color:red; color: white;" (click)="deleteEmployee(employee.empId)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #noEmployees>
+    <div class="card mx-2 my-2 col-mb-4 glasscard"  id=`${employee.empId}`>
+      <div class="card-body text-center">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+          class="rounded-circle img-fluid" style="width: 100px;">
+        <h5 class="mt-3">N/A</h5>
+        <p class="text-muted mb-1">N/A</p>
+        <p class="mb-4" style="color:#5bb73b;">N/A</p>
+        <div class="d-flex justify-content-center mb-2">
+          <button type="button" class="btn mr-2" style="background-color:#5bb73b; color: white;" disabled >Update</button>
+          <button type="button" class="btn ms-1"  style="background-color:red; color: white;" disabled >Delete</button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<div class="pagination" style="justify-content: center;">
+  <button type="button" class="btn mr-2" style="background-color:#5bb73b; color: white;" (click)="getEmployees()">Get Employee</button>
+  <div style="display: flex; flex-direction: row; align-items: center;">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 0" class="pageButton"><</button>
+    <button class="pageButton">{{ currentPage + 1 }}</button>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="employees.length < pageSize" class="pageButton">></button>
+  </div>
+</div>
+
+
+
+
